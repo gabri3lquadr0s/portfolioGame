@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<style>
+    :root {
+    --pixel-size: 2px;
+    --grid-cell: calc( var(--pixel-size) * 16);
+    --bg: #9fa7e4;
+    }
+    @media( min-width: 700px ) {
+    :root {
+        --pixel-size: 3px;
+    }
+    }
+    @media( min-width: 1000px ) {
+    :root {
+        --pixel-size: 4px;
+    }
+    }
+
+    html, body {
+    height: 95%;
+    }
+
+    body {
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .pixel-art {
+    image-rendering: pixelated;
+    }
+
+    .frame {
+    width: calc(var(--pixel-size) * 160);
+    height: calc(var(--pixel-size) * 144);
+    outline: var(--pixel-size) solid #fff;
+    z-index:1; 
+    position:relative;
+    }
+
+    .camera {
+    width: calc(var(--pixel-size) * 160);
+    height: calc(var(--pixel-size) * 144);
+    overflow: hidden;
+    background: #61ddf7;
+    position:relative;
+    }
+
+    .map {
+    image-rendering: pixelated;
+    background-image: url("../img/Map001.png");
+    background-size: 100%;
+    width: calc(20 * var(--grid-cell));
+    height: calc(15 * var(--grid-cell));
+    position: relative;
+    }
+
+    .character {
+    width: calc( var(--grid-cell)* 2 );
+    height: calc( var(--grid-cell)* 2 );
+    position: absolute;
+    overflow:hidden;
+    }
+
+    .shadow {
+    width: calc( var(--grid-cell)* 2 );
+    height: calc( var(--grid-cell)* 2 );
+    position: absolute;
+    left:0;
+    top:0;
+    background: url("https://assets.codepen.io/21542/DemoRpgCharacterShadow.png") no-repeat no-repeat;
+    background-size: 100%;
+    }
+
+    .character_spritesheet {
+    position: absolute;
+    background: url("../img/spritesC.png") no-repeat no-repeat;
+    background-size: 100%;
+    width: calc( var(--grid-cell)* 8 );
+    height: calc( var(--grid-cell)* 8 );
+    }
+
+    .character[facing="right"] .character_spritesheet {
+    background-position-y: calc( var(--pixel-size) * -32 );
+    }
+    .character[facing="up"] .character_spritesheet {
+    background-position-y: calc( var(--pixel-size) * -64 );
+    }
+    .character[facing="left"] .character_spritesheet {
+    background-position-y: calc( var(--pixel-size) * -96 );
+    }
+    .character[walking="true"] .character_spritesheet {
+    animation: walkAnimation 0.6s steps(4) infinite; 
+    }
+
+    @keyframes walkAnimation {
+    from {
+        transform: translate3d(0%,0%,0);
+    }
+    to {
+        transform: translate3d(-100%,0%,0);
+    }
+    }
+
+    .corner_topleft,
+    .corner_topright,
+    .corner_bottomleft,
+    .corner_bottomright {
+    position: absolute;
+    width: var(--pixel-size);
+    height: var(--pixel-size);
+    background: var(--bg);
+    z-index:2;
+    }
+
+    .corner_topleft {
+    top: calc(var(--pixel-size) * -1);
+    left: calc(var(--pixel-size) * -1);
+    }
+    .corner_topright {
+    top: calc(var(--pixel-size) * -1);
+    right: calc(var(--pixel-size) * -1);
+    }
+    .corner_bottomleft {
+    bottom: calc(var(--pixel-size) * -1);
+    left: calc(var(--pixel-size) * -1);
+    }
+    .corner_bottomright {
+    bottom: calc(var(--pixel-size) * -1);
+    right: calc(var(--pixel-size) * -1);
+    }
+
+    .interactable {
+        position: fixed;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    #scienceDoor {
+        width: 48px;
+        height: 130px;
+        right: 20px;
+        top: 410px;
+    }
+
+    #upstairs {
+        width: 360px;
+        height: 250px;
+        top: 80px;
+        right: 465px;
+    }
+
+    #mathDoor {
+        width: 48px;
+        height: 130px;
+        left: 20px;
+        top: 410px;
+    }
+
+    #goBack {
+        width: 360px;
+        height: 48px;
+        bottom: 110px;
+        right: 465px;
+    }
+
+    #message {
+        display: block;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        height: 60px;
+    }
+
+    .title {
+        font-size: 20px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 300px;
+    }
+
+    .child1, .child2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .media {
+        display: block;
+        height: 500px;
+        width: 450px;
+    }
+
+    .description {
+        width: 500px;
+        text-align: justify;
+    }
+</style>
+
+
+
+
+<body>
+    <div class="main">
+            <div class="child1">
+                <div class="title"><h1>Hall Principal - Andar Inferior</h1></div>
+                <div id="message"></div>
+                <div class="frame">
+                    <div class="corner_topleft"></div>
+                    <div class="corner_topright"></div>
+                    <div class="corner_bottomleft"></div>
+                    <div class="corner_bottomright"></div>
+                    
+                    
+                    <div class="camera">
+                        <div class="map pixel-art">
+                            <div class="interactable" id="scienceDoor"></div>
+                            <div class="interactable" id="upstairs"></div>
+                            <div class="interactable" id="mathDoor"></div>
+                            <div class="interactable" id="goBack"></div>
+                            <div class="character" facing="down" walking="true">
+                                <div class="shadow pixel-art"></div>
+                                <div class="character_spritesheet pixel-art"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="child2">
+                <div class="title" id="att"><h1>Viewer de Atividades</h1></div>
+                    <div class="media"></div>
+                    <div class="description">
+                        <h3>Nesta área serão exibidas as atividades que você quiser oberservar. 
+                            Entre nas portas ou suba as escadas para encontrar atividades!</h3>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+</body>
+
+
+
+<script src="../index.js"></script>
+<script>
+    x = 144.5
+    y = 85
+    leftLimit = 7;
+    rightLimit = (24.8 * 11)+8;
+    topLimit = -8 + 60;
+    bottomLimit = (24.6 * 6.9);
+    
+
+    $('.interactable').hover(function() {
+        let id = $(this).attr('id');
+        switch(id) {
+            case 'scienceDoor':
+                console.log(1)
+                $('#message').html('<h2>A porta <b style="color: green">verde</b> leva a área de Ciências da Natureza</h2>');
+                break;
+            case 'mathDoor':
+                $('#message').html('<h2>A porta <b style="color: blue">azul</b> leva a área de Matemática</h2>');
+                break;
+            case 'upstairs':
+                $('#message').html('<h2>Suba as escadas para encontrar outras matérias</h2>');
+                break;
+            case 'goBack':
+                $('#message').html('<h2>Entre nessa porta para voltar</h2>');
+                break;
+        }
+        setTimeout(function() {
+            $('#message').html('');
+        }, 3000);
+    })
+
+    $('.interactable').on('click', function() {
+        let id = $(this).attr('id');
+        switch(id) {
+            case 'scienceDoor':
+                window.open("natureza.html", '_blank');
+                break;
+            case 'mathDoor':
+                window.open("matematica.html", '_blank');
+                break;
+            case 'upstairs':
+                window.open("hubUp.html", '_blank');
+                break;
+            case 'goBack':
+                window.open("../index.html", '_blank');
+                break;
+        }
+    })
+</script>
+</html>
