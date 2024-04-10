@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/style.css">
+    <title>Portfólio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<style></style>
+
+<body>
+    <div class="main">
+            <div class="child1">
+                <div class="title"><h1>Área de Linguagens</h1></div>
+                <div id="message"></div>
+                <div class="frame">
+                    <div class="corner_topleft"></div>
+                    <div class="corner_topright"></div>
+                    <div class="corner_bottomleft"></div>
+                    <div class="corner_bottomright"></div>
+                    
+                    
+                    <div class="camera">
+                        <div class="map pixel-art">
+                            <div class="interactable" id="taskFeb"></div>
+                            <div class="interactable" id="taskMarch"></div>
+                            <div class="interactable" id="taskApril"></div>
+                            <div class="interactable" id="goBack"></div>
+                            <div class="character" facing="left" walking="true">
+                                <div class="shadow pixel-art"></div>
+                                <div class="character_spritesheet pixel-art"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="child2">
+                <div class="title" id="att"><h1>Viewer de Atividades</h1></div>
+                    <div class="media"></div>
+                    <div class="description">
+                        <h3>Nesta área serão exibidas as atividades que você quiser oberservar. 
+                            Entre nas portas ou suba as escadas para encontrar atividades!</h3>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+</body>
+
+
+
+<script src="../src/index.js"></script>
+<script>
+    //TODO - MAPA DE LINGUAGENS
+    x = 265;
+    y = 96;
+    leftLimit = 15;
+    rightLimit = (24.3 * 11)+8;
+    topLimit = -8 + 60;
+    bottomLimit = (20.1 * 7);
+
+    $('.interactable').hover(function() {
+        let id = $(this).attr('id');
+        switch(id) {
+            case 'taskFeb':
+                $('#message').html('<h2>Atividade de Fevereiro</h2>');
+                break;
+            case 'taskMarch':
+                $('#message').html('<h2>Atividade de Março</h2>');
+                break;
+            case 'taskApril':
+                $('#message').html('<h2>Atividade de Abril</h2>');
+                break;
+            case 'goBack':
+                $('#message').html('<h2>Entre nessa porta para voltar</h2>');
+                break;
+        }
+        setTimeout(function() {
+            $('#message').html('');
+        }, 3000);
+    })
+
+    $('.interactable').on('click', function() {
+        let id = $(this).attr('id');
+        switch(id) {
+            case 'taskFeb':
+                $('#att').html('<h1>Plano de Texto</h1>');
+                $('.description').html('<h3>Esta atividade foi desenvolvida como um treino de redação, para identificar os elementos do texto dissertativo argumentativo. O tema que escolhi foi a guerra entre Israel e o Hamas.</h3>');
+                $('.media').html(' <iframe width="450" height="500"src="https://docs.google.com/document/d/e/2PACX-1vR79fE3bXxt7B7swf2UX-1jOI8LyIs-yQY1w22WFFV8IZ7BOkxHc12Y0-dyxeGUorLcHo2Zu6_4mTZT/pub?embedded=true"></iframe> ')
+                break;
+            case 'taskMarch':
+                $('#att').html('<h1>Atividade de Março</h1>');
+                $('.description').html('<h3>Esta atividade ainda não foi adicionada.</h3>');
+                $('.media').html('');
+                break;
+            case 'taskApril':
+                $('#att').html('<h1>Atividade de Abril</h1>');
+                $('.description').html('<h3>Esta atividade ainda não foi adicionada.</h3>');
+                $('.media').html('');
+                break;
+            case 'goBack':
+                window.open("hubDown.html", '_blank');
+                break;
+        }
+    })
+</script>
+</html>
