@@ -78,7 +78,7 @@
 
     $('.interactable').on('click', function() {
         let id = $(this).attr('id');
-        let iframe = $(top.document.getElementById("iframe"));
+        let iframe = $(parent.document.getElementById("iframe"));
         switch(id) {
             case 'taskFeb':
                 $('#att').html('<h1>Plano de Texto</h1>');

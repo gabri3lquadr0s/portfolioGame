@@ -107,7 +107,7 @@
 
     $('.interactable').on('click', function() {
         let id = $(this).attr('id');
-        let iframe = $(top.document.getElementById("iframe"));
+        let iframe = $(parent.document.getElementById("iframe"));
         switch(id) {
             case 'scienceDoor':
                 iframe.attr('src','./pages/natureza.html');
@@ -119,8 +119,9 @@
                 iframe.attr('src','./pages/hubUp.html');
                 break;
             case 'goBack':
-                window.open("index.html", '_blank');
+                window.open("../index.html", '_blank');
                 break;
         }
     })
+    console
 </script>

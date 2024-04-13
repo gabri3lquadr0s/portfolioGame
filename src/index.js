@@ -1,8 +1,6 @@
 var character = $('.character').get(0);
 var map = $('.map').get(0);
 
-// var x = 265;
-// var y = 96;
 var x, y;
 var leftLimit, rightLimit, topLimit, bottomLimit
 var held_directions = [];

@@ -111,7 +111,7 @@
 
     $('.interactable').on('click', function() {
         let id = $(this).attr('id');
-        let iframe = $(top.document.getElementById("iframe"));
+        let iframe = $(parent.document.getElementById("iframe"));
         switch(id) {
             case 'tecDoor':
                 iframe.attr('src','./pages/tecnico.html')
