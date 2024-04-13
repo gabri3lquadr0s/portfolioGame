@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio</title>
+</head>
 <style>
     body {
         margin: 0px;
@@ -7,7 +14,7 @@
         height: 100%;
     }
     .back {
-        background-image: url("../img/noloop.gif");
+        background-image: url("./img/noloop.gif");
         background-position: center;
         background-size: cover;
         overflow: hidden;
@@ -15,7 +22,6 @@
         z-index: 0;
     }
     #menu {
-        /* display: none; */
         display: flex;
         flex-direction: column;
         z-index: 1;
@@ -63,7 +69,7 @@
         <div id="menu" class="hidden">
             <div id="start"><h1 onclick="document.getElementById('start').style.display = 'none';document.getElementById('choose').style.display = 'flex';">CLIQUE PARA COMEÇAR</h1></div>
             <div id="choose">
-                <a href="./pages/hubDown.html"><h1>MATÉRIAS</h1></a>
+                <a href="./base.html"><h1>MATÉRIAS</h1></a>
                 <a href="./pages/sobre.html"><h1>SOBRE MIM</h1></a>
             </div>
             <p>Gabriel de Quadros Teodoro - 3ºC - Sesi/Senai SJ</p>
@@ -75,3 +81,4 @@
         var menu = document.getElementById('menu').style.display = 'flex';
 }, 12000);
 </script>
+</html>

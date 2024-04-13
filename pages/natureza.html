@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../src/style.css">
-    <title>Portfólio</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
+<link rel="stylesheet" href="../src/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <style>
     .map {
     background-image: url("https://drive.google.com/thumbnail?id=1_2LtERb-eBnn_idA5Jd1Zdqi0VrFbgXx&sz=w1000");
@@ -39,7 +33,7 @@
         width: 48px;
         height: 180px;
         left: 50px;
-        top: 580px;
+        top: 390px;
     }
 </style>
 
@@ -118,6 +112,7 @@
 
     $('.interactable').on('click', function() {
         let id = $(this).attr('id');
+        let iframe = $(top.document.getElementById("iframe"));
         switch(id) {
             case 'taskFeb':
                 $('#att').html('<h1>Atividade de Fevereiro</h1>');
@@ -135,11 +130,8 @@
                 $('.media').html('');
                 break;
             case 'goBack':
-                window.open("./hubDown.html", '_blank');
+                iframe.attr('src','./pages/hubDown.html');
                 break;
         }
     })
-
-
 </script>
-</html>

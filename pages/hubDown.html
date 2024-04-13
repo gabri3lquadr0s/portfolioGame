@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../src/style.css">
-    <title>Portfólio</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
+<link rel="stylesheet" href="../src/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
     #scienceDoor {
         width: 48px;
@@ -114,15 +107,16 @@
 
     $('.interactable').on('click', function() {
         let id = $(this).attr('id');
+        let iframe = $(top.document.getElementById("iframe"));
         switch(id) {
             case 'scienceDoor':
-                window.open("natureza.html", '_blank');
+                iframe.attr('src','./pages/natureza.html');
                 break;
             case 'mathDoor':
-                window.open("matematica.html", '_blank');
+                iframe.attr('src','./pages/matematica.html');
                 break;
             case 'upstairs':
-                window.open("hubUp.html", '_blank');
+                iframe.attr('src','./pages/hubUp.html');
                 break;
             case 'goBack':
                 window.open("index.html", '_blank');
@@ -130,4 +124,3 @@
         }
     })
 </script>
-</html>
