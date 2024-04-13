@@ -1,7 +1,41 @@
 <link rel="stylesheet" href="../src/style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<style></style>
+<style>
+    .map {
+    background-image: url("../img/Map005.png");
+    width: calc(15 * var(--grid-cell));
+    height: calc(11 * var(--grid-cell));
+    }
+
+    #taskFeb {
+        width: 120px;
+        height: 70px;
+        top: 85px;
+        right: 100px;
+    }
+
+    #taskMarch {
+        width: 120px;
+        height: 70px;
+        top: 85px;
+        right: 415px;
+    }
+
+    #taskApril {
+        width: 120px;
+        height: 70px;
+        top: 85px;
+        left: 100px;
+    }
+
+    #goBack {
+        width: 48px;
+        height: 180px;
+        right: 40px;
+        top: 310px;
+    }
+</style>
 
 <body>
     <div class="main">
@@ -46,13 +80,12 @@
 
 <script src="../src/index.js"></script>
 <script>
-    //TODO - MAPA DE HUMANAS
-    x = 265;
-    y = 96;
+    x = 195;
+    y = 80;
     leftLimit = 15;
-    rightLimit = (24.3 * 11)+8;
-    topLimit = -8 + 60;
-    bottomLimit = (20.1 * 7);
+    rightLimit = (17 * 11)+8;
+    topLimit = -8 + 45;
+    bottomLimit = (15.7 * 7);
 
     $('.interactable').hover(function() {
         let id = $(this).attr('id');
