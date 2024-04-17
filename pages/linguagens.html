@@ -2,7 +2,41 @@
 <link rel="stylesheet" href="../src/style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<style></style>
+<style>
+    .map {
+    background-image: url("../img/Map006.png");
+    width: calc(15 * var(--grid-cell));
+    height: calc(12 * var(--grid-cell));
+    }
+
+    #taskApril {
+        width: 70px;
+        height: 70px;
+        top: 115px;
+        right: 395px;
+    }
+
+    #taskMarch {
+        width: 70px;
+        height: 70px;
+        top: 115px;
+        left: 305px;
+    }
+
+    #taskFeb {
+        width: 70px;
+        height: 70px;
+        top: 115px;
+        left: 110px;
+    }
+
+    #goBack {
+        width: 48px;
+        height: 180px;
+        left: 52px;
+        top: 390px;
+    }
+</style>
 
 <body>
     <div class="main">
@@ -22,7 +56,7 @@
                             <div class="interactable" id="taskMarch"></div>
                             <div class="interactable" id="taskApril"></div>
                             <div class="interactable" id="goBack"></div>
-                            <div class="character" facing="left" walking="true">
+                            <div class="character" facing="right" walking="true">
                                 <div class="shadow pixel-art"></div>
                                 <div class="character_spritesheet pixel-art"></div>
                             </div>
@@ -47,12 +81,12 @@
 
 <script src="../src/index.js"></script>
 <script>
-    x = 265;
-    y = 96;
+    x = 20;
+    y = 100;
     leftLimit = 15;
-    rightLimit = (24.3 * 11)+8;
+    rightLimit = (20 * 9.4)+8;
     topLimit = -8 + 60;
-    bottomLimit = (20.1 * 7);
+    bottomLimit = (19.5 * 7);
 
     $('.interactable').hover(function() {
         let id = $(this).attr('id');
