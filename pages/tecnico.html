@@ -3,37 +3,44 @@
 
 <style>
     .map {
-    background-image: url("https://drive.google.com/thumbnail?id=1_2LtERb-eBnn_idA5Jd1Zdqi0VrFbgXx&sz=w1000");
+    background-image: url("../img/Map007.png");
     width: calc(15 * var(--grid-cell));
-    height: calc(14 * var(--grid-cell));
+    height: calc(11 * var(--grid-cell));
     }
 
-    #taskFeb {
-        width: 170px;
+    #github {
+        width: 96px;
         height: 96px;
-        top: 100px;
-        right: 105px;
-    }
-
-    #taskMarch {
-        width: 170px;
-        height: 96px;
-        top: 100px;
-        right: 390px;
+        left: 435px;
+        top: 210px;
     }
 
     #taskApril {
-        width: 170px;
-        height: 96px;
+        width: 90px;
+        height: 70px;
         top: 100px;
-        left: 110px;
+        right: 260px;
+    }
+
+    #taskMarch {
+        width: 90px;
+        height: 70px;
+        top: 100px;
+        right: 430px;
+    }
+
+    #taskFeb {
+        width: 90px;
+        height: 70px;
+        top: 100px;
+        left: 260px;
     }
 
     #goBack {
-        width: 48px;
-        height: 180px;
-        left: 50px;
-        top: 580px;
+        width: 200px;
+        height: 60px;
+        left: 380px;
+        bottom: 40px;
     }
 </style>
 
@@ -57,8 +64,9 @@
                             <div class="interactable" id="taskFeb"></div>
                             <div class="interactable" id="taskMarch"></div>
                             <div class="interactable" id="taskApril"></div>
+                            <div class="interactable" id="github"></div>
                             <div class="interactable" id="goBack"></div>
-                            <div class="character" facing="right" walking="true">
+                            <div class="character" facing="up" walking="true">
                                 <div class="shadow pixel-art"></div>
                                 <div class="character_spritesheet pixel-art"></div>
                             </div>
@@ -82,12 +90,12 @@
 
 <script src="../src/index.js"></script>
 <script>
-    x = 0;
-    y = 100;
+    x = 105;
+    y = 120;
     leftLimit = 15;
     rightLimit = (17 * 11)+8;
     topLimit = -8 + 60;
-    bottomLimit = (23 * 7);
+    bottomLimit = (23 * 5.2);
 
     $('.interactable').hover(function() {
         let id = $(this).attr('id');
@@ -101,8 +109,11 @@
             case 'taskApril':
                 $('#message').html('<h2>Atividade de Abril</h2>');
                 break;
-            case 'goBack':
+            case 'github':
                 $('#message').html('<h2>Entre nessa porta para voltar</h2>');
+                break;
+            case 'goBack':
+                $('#message').html('<h2>Clique aqui para acessar meu Github</h2>');
                 break;
         }
         setTimeout(function() {
@@ -128,6 +139,9 @@
                 $('#att').html('<h1>Atividade de Abril</h1>');
                 $('.description').html('<h3>Esta atividade ainda não foi adicionada.</h3>');
                 $('.media').html('');
+                break;
+            case 'github':
+                window.open('https://github.com/gabri3lquadr0s');
                 break;
             case 'goBack':
                 iframe.attr('src','./pages/hubUp.html');
