@@ -28,7 +28,7 @@
         height: auto;
         width: auto;
         position: fixed;
-        margin-top: 10%;
+        margin-top: 7%;
         color: white;
     }
     #start {
@@ -60,7 +60,7 @@
 <body>
     <div class="back">
         <div id="menu">
-            <div id="start"><h1 onclick="document.getElementById('start').style.display = 'none';document.getElementById('choose').style.display = 'flex';">CLIQUE PARA COMEÇAR</h1></div>
+            <div id="start"><h1 id="activateMenu">CLIQUE PARA COMEÇAR</h1></div>
             <div id="choose">
                 <a id="hub"><h1>MATÉRIAS</h1></a>
                 <a id="sobre" href="https://gabri3lquadr0s.github.io/atividadeJackson/" target="_blank"><h1>SOBRE MIM</h1></a>
@@ -71,6 +71,12 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+    $('#activateMenu').on('click', function() {
+        $('#start').css('display', 'none');
+        $('#choose').css('display', 'flex');
+        $('p').css('margin-top', '10%');
+    })
+
     $('#hub').on('click', function() {
         const iframe = $(parent.document.getElementById("iframe"));
         const footer = $(parent.document.getElementById("foo"));        
@@ -78,6 +84,7 @@
         footer.css('display','flex');;
         iframe.attr('src','./pages/hubDown.html');
     })
+
 
 </script>
 </html>
