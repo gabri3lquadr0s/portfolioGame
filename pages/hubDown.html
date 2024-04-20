@@ -119,6 +119,8 @@
                 iframe.attr('src','./pages/hubUp.html');
                 break;
             case 'goBack':
+                $(parent.document.getElementById("foo")).css('display', 'none')
+                iframe.css('height','100vh');
                 iframe.attr('src','./pages/menu.html');
                 break;
         }
