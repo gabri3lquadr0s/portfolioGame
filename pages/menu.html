@@ -59,7 +59,7 @@
 </style>
 <body>
     <div class="back">
-        <div id="menu" class="hidden">
+        <div id="menu">
             <div id="start"><h1 onclick="document.getElementById('start').style.display = 'none';document.getElementById('choose').style.display = 'flex';">CLIQUE PARA COMEÇAR</h1></div>
             <div id="choose">
                 <a id="hub"><h1>MATÉRIAS</h1></a>
@@ -71,17 +71,12 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    setTimeout(function(){
-        var menu = document.getElementById('menu').style.display = 'flex';
-    }, 12000);
-    $('a').on('click', function() {
-        let iframe = $(parent.document.getElementById("iframe"));
-        let id = $(this).attr('id');
-        if(id == 'hub') {
-            iframe.attr('src','./pages/hubDown.html');
-        } else {
-            iframe.attr('src','./pages/sobre.html');
-        }
+    $('#hub').on('click', function() {
+        const iframe = $(parent.document.getElementById("iframe"));
+        const footer = $(parent.document.getElementById("foo"));        
+        iframe.css('height','82vh');
+        footer.css('display','flex');;
+        iframe.attr('src','./pages/hubDown.html');
     })
 
 </script>

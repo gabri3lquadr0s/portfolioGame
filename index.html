@@ -11,12 +11,96 @@
         margin: 0;
         overflow: hidden;
     }
+    body {
+        background-color: #010409;
+    }
     iframe {
         width: 100vw;
         height: 100vh;
     }
+    #foo {
+        display: none;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: #774df5;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #fastTravel,  #controls {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        height: 100%;
+        font-size: 15px;
+        gap: 20px;
+        align-items: center;
+    }
+    #fastTravel h2 {
+        width: 60%;
+        text-align: center;
+    }
+    #fastBtnDiv {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 50%;
+        gap: 10px;
+    }
+    .btn {
+        width: 200px;
+        height: 40px;
+        font-size: 20px;
+        color: #774df5;
+        background-color: #0D1117;
+        border-radius: 15px;
+    }
+    #controls {
+        width: 40%;
+    }
+    #controls2 {
+        display:grid;
+        grid-template-columns: 200px 200px 200px;
+        grid-row: auto auto;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+    }
+    .explanation img {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+    }
+
 </style>
 <body>
     <iframe src="./pages/menu.html" id="iframe"></iframe>
+    <footer id="foo">
+        <div id="fastTravel">
+            <h2>Se você não quiser navegar por todo o mapa, clique aqui para ir diretamente para as salas das matérias.</h2>
+            <div id="fastBtnDiv">
+                <button class="btn">Matemática</button>
+                <button class="btn">Natureza</button>
+                <button class="btn">Linguagens</button>
+                <button class="btn">Humanas</button>
+                <button class="btn">Técnico</button>
+            </div>
+        </div>
+        <div id="controls">
+            <h2>Controles</h2>
+            <div id="controls2">
+                <div class="explanation"><img src="./img/cima.jpg"> Mover para Cima</div>
+                <div class="explanation"><img src="./img/baixo.jpg"> Mover para Baixo</div>
+                <div class="explanation"><img src="./img/mouse.jpg">Interagir</div>
+                <div class="explanation"><img src="./img/esquerda.jpg"> Mover para a Esquerda</div>
+                <div class="explanation"><img src="./img/direita.jpg"> Mover para a Direita</div>
+            </div>
+        </div>
+    </footer>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $('.btn').on('click', function() {
+        let page = $(this).text().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        $('iframe').attr('src', `./pages/${page}.html`);
+    })
+</script>
 </html>
