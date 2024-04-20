@@ -101,10 +101,10 @@
         let id = $(this).attr('id');
         switch(id) {
             case 'taskFeb':
-                $('#message').html('<h2>Repositório React do Curso Técnico</h2>');
+                $('#message').html('<h2>Repositório React</h2>');
                 break;
             case 'taskMarch':
-                $('#message').html('<h2>Atividade de Março</h2>');
+                $('#message').html('<h2>Implantação de Sistema</h2>');
                 break;
             case 'taskApril':
                 $('#message').html('<h2>Levantamento de Requisitos</h2>');
@@ -126,19 +126,19 @@
         let iframe = $(parent.document.getElementById("iframe"));
         switch(id) {
             case 'taskFeb':
-                $('#att').html('<h1>Repositório React do Curso Técnico</h1>');
+                $('#att').html('<h1>Repositório React</h1>');
                 $('.description').html('<h3>Este aqui é meu repositório no Github para algumas atividades de React do curso. <a href="https://github.com/gabri3lquadr0s/react-tecnico" target=”_blank”>Link do repositório.</a></h3>');
                 $('.media').html('<img width="450" height="500" src="../img/repo1.jpg">');
                 break;
             case 'taskMarch':
+                $('#att').html('<h1>Implantação de Sistema</h1>');
+                $('.description').html('<h3>Nesta apresentação tivemos que formular um trabalho mostrando um plano para implementar um sistema de biblioteca, escolhendo qual plataforma cloud era a melhor para o caso e mostrando suas funções</h3>');
+                $('.media').html('<iframe src="https://drive.google.com/file/d/1GTczlssivV2_W4y7MQJJbxOQiBA7b4Ow/preview" width="450" height="500" allow="autoplay"></iframe>');
+                break;
+            case 'taskApril':
                 $('#att').html('<h1>Levantamento de Requisitos</h1>');
                 $('.description').html('<h3>Este documento é uma parte da S.A. final do curso, onde nosso grupo comparou nossa ideia com outros sistemas,e  definiu público alvo, a proposta de valor, e os tipos de usuário.</h3>');
                 $('.media').html('<iframe width="450" height="500" src="https://docs.google.com/document/d/e/2PACX-1vQPD6m0wJ-FGtYHlbKWUJxFj1WjBOkD7mAKctxTjaimrIkq0gMbrnb_wQZGMxDT7s9Ovz9UAul6Vhd_/pub?embedded=true"></iframe>');
-                break;
-            case 'taskApril':
-                $('#att').html('<h1>Em breve</h1>');
-                $('.description').html('<h3>Esta atividade ainda não foi adicionada.</h3>');
-                $('.media').html('');
                 break;
             case 'github':
                 window.open('https://github.com/gabri3lquadr0s');

@@ -3,74 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/index.css">
     <title>Portfólio</title>
 </head>
-<style>
-    * {
-        padding: 0;
-        margin: 0;
-        overflow: hidden;
-    }
-    body {
-        background-color: #010409;
-    }
-    iframe {
-        width: 100vw;
-        height: 100vh;
-    }
-    #foo {
-        display: none;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        color: #774df5;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    #fastTravel,  #controls {
-        display: flex;
-        flex-direction: column;
-        width: 60%;
-        height: 100%;
-        font-size: 15px;
-        gap: 20px;
-        align-items: center;
-    }
-    #fastTravel h2 {
-        width: 60%;
-        text-align: center;
-    }
-    #fastBtnDiv {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        width: 50%;
-        gap: 10px;
-    }
-    .btn {
-        width: 200px;
-        height: 40px;
-        font-size: 20px;
-        color: #774df5;
-        background-color: #0D1117;
-        border-radius: 15px;
-    }
-    #controls {
-        width: 40%;
-    }
-    #controls2 {
-        display:grid;
-        grid-template-columns: 200px 200px 200px;
-        grid-row: auto auto;
-        grid-column-gap: 20px;
-        grid-row-gap: 20px;
-    }
-    .explanation img {
-        width: 32px;
-        height: 32px;
-        margin-right: 10px;
-    }
-
-</style>
 <body>
     <iframe src="./pages/menu.html" id="iframe"></iframe>
     <footer id="foo">
