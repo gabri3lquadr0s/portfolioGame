@@ -4,8 +4,8 @@
     --bg: #0D1117;
     }
     @media(max-width: 1400px) {
-        html, body { 
-            transform: scale(0.89)
+        body { 
+            transform: scale(0.60)
         }
     } 
     @media( min-width: 700px ) {

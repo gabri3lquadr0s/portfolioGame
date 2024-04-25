@@ -62,3 +62,19 @@ iframe {
     height: 32px;
     margin-right: 10px;
 }
+
+@media(max-width: 1400px) {
+    #foo {
+        align-items: baseline;
+    }
+    .btn {
+        font-size: 14px;
+    }
+    #fastTravel h2, #controls h2 {
+        font-size: 14px;
+    }
+    #controls2 {
+        transform: scale(0.8);
+        margin-top: -25px;
+    }
+}
