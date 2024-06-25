@@ -56,6 +56,15 @@
         height: min-content;
         align-items: center;
     }
+    @media(max-width: 1400px) {
+        #menu {
+            transform: scale(0.80);
+        }
+        #menu p {
+            text-align: center;
+            font-size: 14px;
+        }
+    }
 </style>
 <body>
     <div class="back">
@@ -74,7 +83,7 @@
     $('#activateMenu').on('click', function() {
         $('#start').css('display', 'none');
         $('#choose').css('display', 'flex');
-        $('p').css('margin-top', '10%');
+        $('p').css('display', 'none');
     })
 
     $('#hub').on('click', function() {
