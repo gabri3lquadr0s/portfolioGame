@@ -3,54 +3,44 @@
 
 <style>
     .map {
-    background-image: url("../img/Map003.png");
+    background-image: url("../img/Map008.png");
     width: calc(20 * var(--grid-cell));
-    height: calc(12 * var(--grid-cell));
+    height: calc(16 * var(--grid-cell));
     }
 
-    #taskFeb {
-        width: 96px;
-        height: 96px;
-        top: 100px;
-        right: 296px;
+    #taskJun {
+        width: 120px;
+        height: 103px;
+        top: 150px;
+        right: 260px;
     }
 
-    #taskMarch {
-        width: 96px;
-        height: 96px;
-        top: 100px;
-        right: 595px;
+    #taskJul {
+        width: 120px;
+        height: 98px;
+        top: 150px;
+        right: 520px;
     }
 
-    #taskApril {
-        width: 96px;
+    #taskAgo {
+        width: 120px;
         height: 96px;
-        top: 100px;
-        left: 296px;
+        top: 150px;
+        left: 390px;
     }
 
     #goBack {
-        width: 48px;
-        height: 180px;
-        right: 50px;
-        top: 405px;
-    }
-
-    #goFow {
-        width: 105px;
-        height: 200px;
-        left: 0;
-        top: 390px;
+        width: 125px;
+        height: 260px;
+        right: 0px;
+        top: 507px;
     }
 </style>
-
-
-
 
 <body>
     <div class="main">
             <div class="child1">
-                <div class="title"><h1>Área de Matemática</h1></div>
+                <div class="title"><h1>Área de Matemática 2</h1></div>
                 <div id="message"></div>
                 <div class="frame">
                     <div class="corner_topleft"></div>
@@ -61,11 +51,10 @@
                     
                     <div class="camera">
                         <div class="map pixel-art">
-                            <div class="interactable" id="taskFeb"></div>
-                            <div class="interactable" id="taskMarch"></div>
-                            <div class="interactable" id="taskApril"></div>
+                            <div class="interactable" id="taskJun"></div>
+                            <div class="interactable" id="taskJul"></div>
+                            <div class="interactable" id="taskAgo"></div>
                             <div class="interactable" id="goBack"></div>
-                            <div class="interactable" id="goFow"></div>
                             <div class="character" facing="left" walking="true">
                                 <div class="shadow pixel-art"></div>
                                 <div class="character_spritesheet pixel-art"></div>
@@ -79,42 +68,38 @@
                 <div class="media"></div>
                 <div class="description">
                     <h3>Nesta área serão exibidas as atividades que você quiser oberservar. 
-                        Clique nos quadros dentro das salas de cada matéria para vê-las. Você pode passar o mouse por cima para ver qual atividade é.</h3>
+                        Clique nos quadros dentro das salas de cada matéria para vê-las. Você 
+                        pode passar o mouse por cima para ver qual atividade é.</h3>
                 </div>
             </div>
     </div>
     
 </body>
 
-
-
 <script src="../src/index.js"></script>
 <script>
     x = 265;
-    y = 96;
-    leftLimit = 15;
-    rightLimit = (24.3 * 11)+8;
-    topLimit = -8 + 60;
-    bottomLimit = (20.1 * 7);
+    y = 135;
+    leftLimit = 22;
+    rightLimit = 266;
+    topLimit = 80;
+    bottomLimit = 192;
 
     $('.interactable').hover(function() {
         let id = $(this).attr('id');
         switch(id) {
-            case 'taskFeb':
+            case 'taskJun':
                 $('#message').html('<h2>Construção do Teodolito</h2>');
                 break;
-            case 'taskMarch':
+            case 'taskJul':
                 $('#message').html('<h2>Medição de Objetos</h2>');
                 break;
-            case 'taskApril':
+            case 'taskAgo':
                 $('#message').html('<h2>Círculo Trigonométrico</h2>');
                 break;
             case 'goBack':
                 $('#message').html('<h2>Entre nessa porta para voltar</h2>');
                 break;
-            case 'goFow':
-                $('#message').html('<h2>Continue para o segundo trimestre</h2>');
-                    break;
         }
         setTimeout(function() {
             $('#message').html('');
@@ -125,26 +110,23 @@
         let id = $(this).attr('id');
         let iframe = $(parent.document.getElementById("iframe"));
         switch(id) {
-            case 'taskFeb':
+            case 'taskJun':
                 $('#att').html('<h1>Construção do Teodolito</h1>');
                 $('.description').html('<h3>Esta atividade foi realizada como inicio do nosso aprendizado sobre trigonometria no 3º ano do Ensino Médio, focando na prática da Lei do Seno e Lei do Cosseno. Produzimos um vídeo detalhando o processo de construção da ferramenta e medição dos ângulos.</h3>');
                 $('.media').html(' <iframe width="450" height="500"src="https://www.youtube.com/embed/SrCFrMm6D6A"></iframe> ')
                 break;
-            case 'taskMarch':
+            case 'taskJul':
                 $('#att').html('<h1>Medição de Objetos</h1>');
                 $('.description').html('<h3>Esta atividade consistiu em sair pela escola para tirar fotos de ojetos, com um aplicativo chamado AR Ruler Aapp. Depois com as medidas cálculamos os senos e cossenos dos triangulos.</h3>');
                 $('.media').html('<iframe src="https://drive.google.com/file/d/1t-JM3prXIGVm-SzywnaIM4L88eDTIoaN/preview" width="450" height="500" allow="autoplay"></iframe>');
                 break;
-            case 'taskApril':
+            case 'taskAgo':
                 $('#att').html('<h1>Círculo Trigonométrico</h1>');
                 $('.description').html('<h3>Esta atividade foi prática. Trouxemos os materiais para confeccionar um círculo trigonométrico, e depois o usamos para medir o seno, cosseno, e tangente de alguns ângulos.</h3>');
                 $('.media').html('<iframe src="https://drive.google.com/file/d/1ZW2VskTscgmrNPWNVKaJDxMaz8S-LR5H/preview" width="450" height="500" allow="autoplay"></iframe>');
                 break;
             case 'goBack':
-                iframe.attr('src','./pages/hubDown.html');
-                break;
-            case 'goFow':
-                iframe.attr('src', './pages/matematica2.html');
+                iframe.attr('src','./pages/matematica.html');
                 break;
         }
     })
