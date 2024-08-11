@@ -36,6 +36,13 @@
         left: 52px;
         top: 390px;
     }
+
+    #goFow {
+        width: 105px;
+        height: 200px;
+        right: 0;
+        top: 380px;
+    }
 </style>
 
 <body>
@@ -56,6 +63,7 @@
                             <div class="interactable" id="taskMarch"></div>
                             <div class="interactable" id="taskApril"></div>
                             <div class="interactable" id="goBack"></div>
+                            <div class="interactable" id="goFow"></div>
                             <div class="character" facing="right" walking="true">
                                 <div class="shadow pixel-art"></div>
                                 <div class="character_spritesheet pixel-art"></div>
@@ -103,6 +111,9 @@
             case 'goBack':
                 $('#message').html('<h2>Entre nessa porta para voltar</h2>');
                 break;
+            case 'goFow':
+                $('#message').html('<h2>Continue para o segundo trimestre</h2>');
+                    break;
         }
         setTimeout(function() {
             $('#message').html('');
@@ -130,6 +141,9 @@
                 break;
             case 'goBack':
                 iframe.attr('src','./pages/hubUp.html');
+                break;
+            case 'goFow':
+                iframe.attr('src', './pages/linguagens2.html');
                 break;
         }
     })
