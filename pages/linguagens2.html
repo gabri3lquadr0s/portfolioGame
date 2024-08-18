@@ -55,7 +55,7 @@
                             <div class="interactable" id="taskJul"></div>
                             <div class="interactable" id="taskAgo"></div>
                             <div class="interactable" id="goBack"></div>
-                            <div class="character" facing="left" walking="true">
+                            <div class="character" facing="right" walking="true">
                                 <div class="shadow pixel-art"></div>
                                 <div class="character_spritesheet pixel-art"></div>
                             </div>
@@ -76,6 +76,7 @@
     
 </body>
 
+<script src="../src/jquery-collision.js"></script>
 <script src="../src/index.js"></script>
 <script>
     x = 22;
@@ -130,4 +131,6 @@
                 break;
         }
     })
+
+    setInterval(() => {console.log($('.character').collision('.colidable'))}, 1000)
 </script>

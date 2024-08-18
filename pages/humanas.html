@@ -5,7 +5,7 @@
     .map {
     background-image: url("../img/Map005.png");
     width: calc(15 * var(--grid-cell));
-    height: calc(11 * var(--grid-cell));
+    height: calc(10 * var(--grid-cell));
     }
 
     #taskFeb {
@@ -35,6 +35,13 @@
         right: 40px;
         top: 310px;
     }
+
+    #goFow {
+        width: 160px;
+        height: 85px;
+        left: 80;
+        bottom: 0;
+    }
 </style>
 
 <body>
@@ -55,6 +62,7 @@
                             <div class="interactable" id="taskMarch"></div>
                             <div class="interactable" id="taskApril"></div>
                             <div class="interactable" id="goBack"></div>
+                            <div class="interactable" id="goFow"></div>
                             <div class="character" facing="left" walking="true">
                                 <div class="shadow pixel-art"></div>
                                 <div class="character_spritesheet pixel-art"></div>
@@ -83,9 +91,9 @@
     x = 195;
     y = 80;
     leftLimit = 15;
-    rightLimit = (17 * 11)+8;
-    topLimit = -8 + 45;
-    bottomLimit = (15.7 * 7);
+    rightLimit = 195;
+    topLimit = 37;
+    bottomLimit = 107;
 
     $('.interactable').hover(function() {
         let id = $(this).attr('id');
@@ -102,6 +110,9 @@
             case 'goBack':
                 $('#message').html('<h2>Entre nessa porta para voltar</h2>');
                 break;
+            case 'goFow':
+                $('#message').html('<h2>Continue para o segundo trimestre</h2>');
+                    break;
         }
         setTimeout(function() {
             $('#message').html('');
@@ -129,6 +140,9 @@
                 break;
             case 'goBack':
                 iframe.attr('src','./pages/hubUp.html');
+                break;
+            case 'goFow':
+                iframe.attr('src', './pages/humanas2.html');
                 break;
         }
     })
