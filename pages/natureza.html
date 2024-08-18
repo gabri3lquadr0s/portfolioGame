@@ -5,7 +5,7 @@
     .map {
     background-image: url("../img/Map004.png");
     width: calc(15 * var(--grid-cell));
-    height: calc(14 * var(--grid-cell));
+    height: calc(13.5 * var(--grid-cell));
     }
 
     #taskApril {
@@ -35,6 +35,13 @@
         left: 50px;
         top: 390px;
     }
+
+    #goFow {
+        width: 192px;
+        height: 95px;
+        right: 95;
+        bottom: 0;
+    }
 </style>
 
 
@@ -58,6 +65,7 @@
                             <div class="interactable" id="taskMarch"></div>
                             <div class="interactable" id="taskApril"></div>
                             <div class="interactable" id="goBack"></div>
+                            <div class="interactable" id="goFow"></div>
                             <div class="character" facing="right" walking="true">
                                 <div class="shadow pixel-art"></div>
                                 <div class="character_spritesheet pixel-art"></div>
@@ -104,6 +112,9 @@
             case 'goBack':
                 $('#message').html('<h2>Entre nessa porta para voltar</h2>');
                 break;
+            case 'goFow':
+                $('#message').html('<h2>Continue para o segundo trimestre</h2>');
+                    break;
         }
         setTimeout(function() {
             $('#message').html('');
@@ -131,6 +142,9 @@
                 break;
             case 'goBack':
                 iframe.attr('src','./pages/hubDown.html');
+                break;
+            case 'goFow':
+                iframe.attr('src', './pages/natureza2.html');
                 break;
         }
     })
