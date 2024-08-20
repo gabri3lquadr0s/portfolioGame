@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="../src/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+    .map {
+    background-image: url("../img/Map012.png");
+    width: calc(20 * var(--grid-cell));
+    height: calc(16 * var(--grid-cell));
+    }
+
+    #taskJun {
+        width: 120px;
+        height: 103px;
+        top: 150px;
+        right: 260px;
+    }
+
+    #taskJul {
+        width: 120px;
+        height: 98px;
+        top: 150px;
+        right: 520px;
+    }
+
+    #taskAgo {
+        width: 120px;
+        height: 96px;
+        top: 150px;
+        left: 390px;
+    }
+
+    #goBack {
+        width: 125px;
+        height: 260px;
+        right: 0px;
+        top: 507px;
+    }
+</style>
+
+<body>
+    <div class="main">
+            <div class="child1">
+                <div class="title"><h1>Área do Técnico 2</h1></div>
+                <div id="message"></div>
+                <div class="frame">
+                    <div class="corner_topleft"></div>
+                    <div class="corner_topright"></div>
+                    <div class="corner_bottomleft"></div>
+                    <div class="corner_bottomright"></div>
+                    
+                    
+                    <div class="camera">
+                        <div class="map pixel-art">
+                            <div class="interactable" id="taskJun"></div>
+                            <div class="interactable" id="taskJul"></div>
+                            <div class="interactable" id="taskAgo"></div>
+                            <div class="interactable" id="goBack"></div>
+                            <div class="character" facing="left" walking="true">
+                                <div class="shadow pixel-art"></div>
+                                <div class="character_spritesheet pixel-art"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="child2">
+                <div class="title" id="att"><h1>Viewer de Atividades</h1></div>
+                <div class="media"></div>
+                <div class="description">
+                    <h3>Nesta área serão exibidas as atividades que você quiser oberservar. 
+                        Clique nos quadros dentro das salas de cada matéria para vê-las. Você 
+                        pode passar o mouse por cima para ver qual atividade é.</h3>
+                </div>
+            </div>
+    </div>
+    
+</body>
+
+<script src="../src/index.js"></script>
+<script>
+    x = 265;
+    y = 135;
+    leftLimit = 22;
+    rightLimit = 266;
+    topLimit = 80;
+    bottomLimit = 192;
+
+    $('.interactable').hover(function() {
+        let id = $(this).attr('id');
+        switch(id) {
+            case 'taskJun':
+                $('#message').html('<h2></h2>');
+                break;
+            case 'taskJul':
+                $('#message').html('<h2></h2>');
+                break;
+            case 'taskAgo':
+                $('#message').html('<h2></h2>');
+                break;
+            case 'goBack':
+                $('#message').html('<h2></h2>');
+                break;
+        }
+        setTimeout(function() {
+            $('#message').html('');
+        }, 3000);
+    })
+
+    $('.interactable').on('click', function() {
+        let id = $(this).attr('id');
+        let iframe = $(parent.document.getElementById("iframe"));
+        switch(id) {
+            case 'taskJun':
+                $('#att').html('<h1></h1>');
+                $('.description').html('<h3></h3>');
+                $('.media').html(' <iframe width="450" height="500"src="></iframe> ')
+                break;
+            case 'taskJul':
+                $('#att').html('<h1></h1>');
+                $('.description').html('<h3></h3>');
+                $('.media').html('<iframe src="" width="450" height="500" allow="autoplay"></iframe>');
+                break;
+            case 'taskAgo':
+                $('#att').html('<h1></h1>');
+                $('.description').html('<h3></h3>');
+                $('.media').html('<iframe src="" width="450" height="500" allow="autoplay"></iframe>');
+                break;
+            case 'goBack':
+                iframe.attr('src','./pages/matematica.html');
+                break;
+        }
+    })
+</script>

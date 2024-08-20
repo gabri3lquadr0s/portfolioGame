@@ -8,7 +8,7 @@
     height: calc(19 * var(--grid-cell));
     }
 
-    #taskJun {
+    #taskMai {
         width: 210px;
         height: 90px;
         top: 150px;
@@ -30,10 +30,10 @@
     }
 
     #goBack {
-        width: 210px;
-        height: 90px;
-        top: 150px;
-        right: 380px;
+        width: 250px;
+        height: 200px;
+        top: 140px;
+        right: 120px;
     }
 </style>
 
@@ -51,7 +51,7 @@
                     
                     <div class="camera">
                         <div class="map pixel-art">
-                            <div class="interactable" id="taskJun"></div>
+                            <div class="interactable" id="taskMai"></div>
                             <div class="interactable" id="taskJul"></div>
                             <div class="interactable" id="taskAgo"></div>
                             <div class="interactable" id="goBack"></div>
@@ -88,14 +88,14 @@
     $('.interactable').hover(function() {
         let id = $(this).attr('id');
         switch(id) {
-            case 'taskJun':
-                $('#message').html('<h2>Construção do Teodolito</h2>');
+            case 'taskMai':
+                $('#message').html('<h2>Plano de Aula</h2>');
                 break;
             case 'taskJul':
-                $('#message').html('<h2>Medição de Objetos</h2>');
+                $('#message').html('<h2></h2>');
                 break;
             case 'taskAgo':
-                $('#message').html('<h2>Círculo Trigonométrico</h2>');
+                $('#message').html('<h2>Ecocraft</h2>');
                 break;
             case 'goBack':
                 $('#message').html('<h2>Entre nessa porta para voltar</h2>');
@@ -110,23 +110,23 @@
         let id = $(this).attr('id');
         let iframe = $(parent.document.getElementById("iframe"));
         switch(id) {
-            case 'taskJun':
-                $('#att').html('<h1>Construção do Teodolito</h1>');
-                $('.description').html('<h3>Esta atividade foi realizada como inicio do nosso aprendizado sobre trigonometria no 3º ano do Ensino Médio, focando na prática da Lei do Seno e Lei do Cosseno. Produzimos um vídeo detalhando o processo de construção da ferramenta e medição dos ângulos.</h3>');
-                $('.media').html(' <iframe width="450" height="500"src="https://www.youtube.com/embed/SrCFrMm6D6A"></iframe> ')
+            case 'taskMai':
+                $('#att').html('<h1>Plano de Aula</h1>');
+                $('.description').html('<h3>A atividade do dia foi a produção de um plano de aula sobre algum tema relacionado a genética, no nosso caso transplantes. Este plano levou a uma apresentação sobre o assunto.</h3>');
+                $('.media').html(' <iframe width="450" height="500"src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGEpdN1mHA&#x2F;i3cinqXeAOZdVz9bQF4v4w&#x2F;view?embed" allowfullscreen="allowfullscreen" loading="lazy"></iframe> ')
                 break;
             case 'taskJul':
-                $('#att').html('<h1>Medição de Objetos</h1>');
-                $('.description').html('<h3>Esta atividade consistiu em sair pela escola para tirar fotos de ojetos, com um aplicativo chamado AR Ruler Aapp. Depois com as medidas cálculamos os senos e cossenos dos triangulos.</h3>');
-                $('.media').html('<iframe src="https://drive.google.com/file/d/1t-JM3prXIGVm-SzywnaIM4L88eDTIoaN/preview" width="450" height="500" allow="autoplay"></iframe>');
+                $('#att').html('<h1></h1>');
+                $('.description').html('<h3></h3>');
+                $('.media').html('<iframe src="" width="450" height="500" allow="autoplay"></iframe>');
                 break;
             case 'taskAgo':
-                $('#att').html('<h1>Círculo Trigonométrico</h1>');
-                $('.description').html('<h3>Esta atividade foi prática. Trouxemos os materiais para confeccionar um círculo trigonométrico, e depois o usamos para medir o seno, cosseno, e tangente de alguns ângulos.</h3>');
-                $('.media').html('<iframe src="https://drive.google.com/file/d/1ZW2VskTscgmrNPWNVKaJDxMaz8S-LR5H/preview" width="450" height="500" allow="autoplay"></iframe>');
+                $('#att').html('<h1>Ecocraft</h1>');
+                $('.description').html('<h3>Nesta atividade prática, nós escolhemos um tipo de bioma do planeta e tivemos que fazer duas atividades, um infográfico sobre e um cenário no Minecraft representando o bioma.</h3>');
+                $('.media').html('<iframe src="" width="450" height="500" allow="autoplay"></iframe>');
                 break;
             case 'goBack':
-                iframe.attr('src','./pages/matematica.html');
+                iframe.attr('src','./pages/natureza.html');
                 break;
         }
     })

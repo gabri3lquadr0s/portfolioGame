@@ -8,14 +8,14 @@
     height: calc(19 * var(--grid-cell));
     }
 
-    #taskJun {
+    #taskMai {
         width: 80px;
         height: 95px;
         top: 135px;
         left: 140px;
     }
 
-    #taskJul {
+    #taskJun {
         width: 80px;
         height: 95px;
         top: 135px;
@@ -40,7 +40,7 @@
 <body>
     <div class="main">
             <div class="child1">
-                <div class="title"><h1>Área de Matemática 2</h1></div>
+                <div class="title"><h1>Área de Linguagens 2</h1></div>
                 <div id="message"></div>
                 <div class="frame">
                     <div class="corner_topleft"></div>
@@ -51,8 +51,8 @@
                     
                     <div class="camera">
                         <div class="map pixel-art">
+                            <div class="interactable" id="taskMai"></div>
                             <div class="interactable" id="taskJun"></div>
-                            <div class="interactable" id="taskJul"></div>
                             <div class="interactable" id="taskAgo"></div>
                             <div class="interactable" id="goBack"></div>
                             <div class="character" facing="right" walking="true">
@@ -76,7 +76,6 @@
     
 </body>
 
-<script src="../src/jquery-collision.js"></script>
 <script src="../src/index.js"></script>
 <script>
     x = 22;
@@ -89,14 +88,14 @@
     $('.interactable').hover(function() {
         let id = $(this).attr('id');
         switch(id) {
-            case 'taskJun':
-                $('#message').html('<h2>Construção do Teodolito</h2>');
+            case 'taskMai':
+                $('#message').html('<h2>Revista Literária - Velhos</h2>');
                 break;
-            case 'taskJul':
-                $('#message').html('<h2>Medição de Objetos</h2>');
+            case 'taskJun':
+                $('#message').html('<h2>Podcast</h2>');
                 break;
             case 'taskAgo':
-                $('#message').html('<h2>Círculo Trigonométrico</h2>');
+                $('#message').html('<h2>Revista Literária - Solitária</h2>');
                 break;
             case 'goBack':
                 $('#message').html('<h2>Entre nessa porta para voltar</h2>');
@@ -111,26 +110,24 @@
         let id = $(this).attr('id');
         let iframe = $(parent.document.getElementById("iframe"));
         switch(id) {
-            case 'taskJun':
-                $('#att').html('<h1>Construção do Teodolito</h1>');
-                $('.description').html('<h3>Esta atividade foi realizada como inicio do nosso aprendizado sobre trigonometria no 3º ano do Ensino Médio, focando na prática da Lei do Seno e Lei do Cosseno. Produzimos um vídeo detalhando o processo de construção da ferramenta e medição dos ângulos.</h3>');
-                $('.media').html(' <iframe width="450" height="500"src="https://www.youtube.com/embed/SrCFrMm6D6A"></iframe> ')
+            case 'taskMai':
+                $('#att').html('<h1>Revista Literária - Velhos</h1>');
+                $('.description').html('<h3>Esta continuação da revista literária focou no livro Velhos, de Alê Motta. Produzimos uma história em quadrinhos curta baseados em um dos diversos textos que compõem a obra.</h3>');
+                $('.media').html(' <iframe allowfullscreen="allowfullscreen" loading="lazy" allow="fullscreen" width="450" height="500" src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGDPv_Q5gw&#x2F;EqHlv4l1uQE27M6BvuInxw&#x2F;view?embed"></iframe> ')
                 break;
-            case 'taskJul':
-                $('#att').html('<h1>Medição de Objetos</h1>');
-                $('.description').html('<h3>Esta atividade consistiu em sair pela escola para tirar fotos de ojetos, com um aplicativo chamado AR Ruler Aapp. Depois com as medidas cálculamos os senos e cossenos dos triangulos.</h3>');
-                $('.media').html('<iframe src="https://drive.google.com/file/d/1t-JM3prXIGVm-SzywnaIM4L88eDTIoaN/preview" width="450" height="500" allow="autoplay"></iframe>');
+            case 'taskJun':
+                $('#att').html('<h1>Podcast</h1>');
+                $('.description').html('<h3>Nesta atividade foram escolhidos diversos autores da época do modernismo, no caso do nosso grupo o Manuel Bandeira, e produzimos um podcast como se estivessemos estrevistando o escritor.</h3>');
+                $('.media').html('<iframe src="https://www.youtube.com/embed/0REBsKtJuQ8?si=hYh58XTW3aT_Ws8Y" width="450" height="500" allow="autoplay"></iframe>');
                 break;
             case 'taskAgo':
-                $('#att').html('<h1>Círculo Trigonométrico</h1>');
-                $('.description').html('<h3>Esta atividade foi prática. Trouxemos os materiais para confeccionar um círculo trigonométrico, e depois o usamos para medir o seno, cosseno, e tangente de alguns ângulos.</h3>');
-                $('.media').html('<iframe src="https://drive.google.com/file/d/1ZW2VskTscgmrNPWNVKaJDxMaz8S-LR5H/preview" width="450" height="500" allow="autoplay"></iframe>');
+                $('#att').html('<h1>Revista Literária - Solitária</h1>');
+                $('.description').html('<h3>Tivemos esta outra continuação da revista literária, agora sobre o livro Solitária, de Eliana Alves. Produzimos um artigo sobre diversos asssunto que podem ser encontrados pelas páginas do livro.</h3>');
+                $('.media').html('<iframe allowfullscreen="allowfullscreen" loading="lazy" allow="fullscreen" width="450" height="500" src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGDPv_Q5gw&#x2F;EqHlv4l1uQE27M6BvuInxw&#x2F;view?embed"></iframe>');
                 break;
             case 'goBack':
                 iframe.attr('src','./pages/linguagens.html');
                 break;
         }
     })
-
-    setInterval(() => {console.log($('.character').collision('.colidable'))}, 1000)
 </script>
