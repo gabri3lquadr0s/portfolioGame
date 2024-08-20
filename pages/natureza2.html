@@ -4,43 +4,43 @@
 <style>
     .map {
     background-image: url("../img/Map010.png");
-    width: calc(20 * var(--grid-cell));
-    height: calc(16 * var(--grid-cell));
+    width: calc(19 * var(--grid-cell));
+    height: calc(19 * var(--grid-cell));
     }
 
     #taskJun {
-        width: 120px;
-        height: 103px;
+        width: 210px;
+        height: 90px;
         top: 150px;
-        right: 260px;
+        right: 380px;
     }
 
     #taskJul {
-        width: 120px;
-        height: 98px;
+        width: 210px;
+        height: 90px;
         top: 150px;
-        right: 520px;
+        right: 620px;
     }
 
     #taskAgo {
-        width: 120px;
-        height: 96px;
+        width: 210px;
+        height: 90px;
         top: 150px;
-        left: 390px;
+        right: 865px;
     }
 
     #goBack {
-        width: 125px;
-        height: 260px;
-        right: 0px;
-        top: 507px;
+        width: 210px;
+        height: 90px;
+        top: 150px;
+        right: 380px;
     }
 </style>
 
 <body>
     <div class="main">
             <div class="child1">
-                <div class="title"><h1>Área de Matemática 2</h1></div>
+                <div class="title"><h1>Área de Natureza 2</h1></div>
                 <div id="message"></div>
                 <div class="frame">
                     <div class="corner_topleft"></div>
@@ -55,7 +55,7 @@
                             <div class="interactable" id="taskJul"></div>
                             <div class="interactable" id="taskAgo"></div>
                             <div class="interactable" id="goBack"></div>
-                            <div class="character" facing="left" walking="true">
+                            <div class="character" facing="down" walking="true">
                                 <div class="shadow pixel-art"></div>
                                 <div class="character_spritesheet pixel-art"></div>
                             </div>
@@ -78,12 +78,12 @@
 
 <script src="../src/index.js"></script>
 <script>
-    x = 265;
-    y = 135;
+    x = 225;
+    y = 70;
     leftLimit = 22;
-    rightLimit = 266;
+    rightLimit = 250;
     topLimit = 80;
-    bottomLimit = 192;
+    bottomLimit = 240;
 
     $('.interactable').hover(function() {
         let id = $(this).attr('id');
