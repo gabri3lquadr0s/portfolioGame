@@ -42,6 +42,13 @@
         left: 380px;
         bottom: 40px;
     }
+
+    #goFow {
+        width: 195px;
+        height: 110px;
+        left: 385px;
+        top: 380px;
+    }
 </style>
 
 
@@ -66,6 +73,7 @@
                             <div class="interactable" id="taskApril"></div>
                             <div class="interactable" id="github"></div>
                             <div class="interactable" id="goBack"></div>
+                            <div class="interactable" id="goFow"></div>
                             <div class="character" facing="up" walking="true">
                                 <div class="shadow pixel-art"></div>
                                 <div class="character_spritesheet pixel-art"></div>
@@ -115,6 +123,9 @@
             case 'github':
                 $('#message').html('<h2>Clique aqui para acessar meu Github</h2>');
                 break;
+            case 'goFow':
+                $('#message').html('<h2>Continue para o segundo trimestre</h2>');
+                break;
         }
         setTimeout(function() {
             $('#message').html('');
@@ -145,6 +156,9 @@
                 break;
             case 'goBack':
                 iframe.attr('src','./pages/hubUp.html');
+                break;
+            case 'goFow':
+                iframe.attr('src', './pages/tecnico2.html');
                 break;
         }
     })

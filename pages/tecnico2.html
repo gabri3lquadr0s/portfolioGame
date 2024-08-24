@@ -5,35 +5,39 @@
     .map {
     background-image: url("../img/Map012.png");
     width: calc(20 * var(--grid-cell));
-    height: calc(16 * var(--grid-cell));
+    height: calc(14 * var(--grid-cell));
     }
 
     #taskJun {
-        width: 120px;
-        height: 103px;
+        width: 95px;
+        height: 75px;
         top: 150px;
-        right: 260px;
+        right: 475px;
     }
 
     #taskJul {
-        width: 120px;
-        height: 98px;
+        width: 95px;
+        height: 75px;
         top: 150px;
-        right: 520px;
+        right: 595px;
     }
 
     #taskAgo {
-        width: 120px;
-        height: 96px;
+        width: 95px;
+        height: 75px;
         top: 150px;
-        left: 390px;
+        left: 480px;
     }
 
     #goBack {
-        width: 125px;
-        height: 260px;
-        right: 0px;
-        top: 507px;
+        width: 270px;
+        height: 150px;
+        left: 510px;
+        bottom: 120px;
+    }
+
+    .media {
+        width: 650px;
     }
 </style>
 
@@ -51,11 +55,11 @@
                     
                     <div class="camera">
                         <div class="map pixel-art">
-                            <div class="interactable" id="taskJun"></div>
-                            <div class="interactable" id="taskJul"></div>
                             <div class="interactable" id="taskAgo"></div>
+                            <div class="interactable" id="taskJul"></div>
+                            <div class="interactable" id="taskJun"></div>
                             <div class="interactable" id="goBack"></div>
-                            <div class="character" facing="left" walking="true">
+                            <div class="character" facing="up" walking="true">
                                 <div class="shadow pixel-art"></div>
                                 <div class="character_spritesheet pixel-art"></div>
                             </div>
@@ -78,27 +82,27 @@
 
 <script src="../src/index.js"></script>
 <script>
-    x = 265;
+    x = 145;
     y = 135;
     leftLimit = 22;
     rightLimit = 266;
     topLimit = 80;
-    bottomLimit = 192;
+    bottomLimit = 170;
 
     $('.interactable').hover(function() {
         let id = $(this).attr('id');
         switch(id) {
             case 'taskJun':
-                $('#message').html('<h2></h2>');
+                $('#message').html('<h2>Conexão com API</h2>');
                 break;
             case 'taskJul':
                 $('#message').html('<h2></h2>');
                 break;
             case 'taskAgo':
-                $('#message').html('<h2></h2>');
+                $('#message').html('<h2>Repositório de Projetos Mobile</h2>');
                 break;
             case 'goBack':
-                $('#message').html('<h2></h2>');
+                $('#message').html('<h2>Clique aqui para voltar</h2>');
                 break;
         }
         setTimeout(function() {
@@ -111,19 +115,19 @@
         let iframe = $(parent.document.getElementById("iframe"));
         switch(id) {
             case 'taskJun':
-                $('#att').html('<h1></h1>');
-                $('.description').html('<h3></h3>');
-                $('.media').html(' <iframe width="450" height="500"src="></iframe> ')
+                $('#att').html('<h1>Conexão com API</h1>');
+                $('.description').html('<h3>Esta atividade foi realizada para treinar e aperfeiçoar os conceitos de conexão com API com FetchAPI no FrontEnd com React e Vite, a API consiste em um endpoint com personagens da série Rick and Morty. <a target="_blank" href="https://github.com/gabri3lquadr0s/react-tecnico/tree/main/rick">Link do repositório.</a></h3>');
+                $('.media').html('<img width="650" height="500" src="../img/rick.png">')
                 break;
             case 'taskJul':
-                $('#att').html('<h1></h1>');
-                $('.description').html('<h3></h3>');
-                $('.media').html('<iframe src="" width="450" height="500" allow="autoplay"></iframe>');
+                $('#att').html('<h1>Modelagem de Banco de Dados</h1>');
+                $('.description').html('<h3>Esta atividade serviu para avançar nosso estudo de banco de dados. A modelagem apresentada descreve um sistema de gerenciamento de pedidos em um restaurante, composto pelas tabelas Garcom, Mesa, Pedido, Prato e pedido_prato</h3>');
+                $('.media').html('<img width="650" height="300" src="../img/bd.png">');
                 break;
             case 'taskAgo':
-                $('#att').html('<h1></h1>');
-                $('.description').html('<h3></h3>');
-                $('.media').html('<iframe src="" width="450" height="500" allow="autoplay"></iframe>');
+                $('#att').html('<h1>Tela de Banco com React Native</h1>');
+                $('.description').html('<h3>Nesta atividade prática de React Native o objetivo era criar uma tela de banco, com funções de sacar e depositar valores inseridos pelo usuário. Esta tarefa serviu para consolidar os aprendizados anteriores com o framework e desenvolvimento mobile. <a target="_blank" href="https://github.com/gabri3lquadr0s/react-native-senai">Link do repositório.</a></h3>');
+                $('.media').html('<img width="650" height="500" src="../img/contador.png">');
                 break;
             case 'goBack':
                 iframe.attr('src','./pages/matematica.html');
