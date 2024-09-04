@@ -10,7 +10,7 @@
     <iframe src="./pages/menu.html" id="iframe"></iframe>
     <footer id="foo">
         <div id="fastTravel">
-            <h2>Se você não quiser navegar por todo o mapa, clique aqui para ir diretamente para as salas das matérias.</h2>
+            <h2>Se você não quiser navegar por todo o mapa, clique aqui para ir diretamente para as salas das matérias do segundo trimestre.</h2>
             <div id="fastBtnDiv">
                 <button class="btn">Matemática</button>
                 <button class="btn">Natureza</button>
@@ -36,7 +36,7 @@
 <script>
     $('.btn').on('click', function() {
         let page = $(this).text().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        $('iframe').attr('src', `./pages/${page}.html`);
+        $('iframe').attr('src', `./pages/${page}2.html`);
     })
 </script>
 </html>
