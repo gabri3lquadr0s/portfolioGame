@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="../src/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+    .map {
+    background-image: url("../img/Map013.png");
+    width: calc(20 * var(--grid-cell));
+    height: calc(16 * var(--grid-cell));
+    }
+
+    #taskSet {
+        width: 125px;
+        height: 110px;
+        top: 150px;
+        left: 260px;
+    }
+
+    #taskOct {
+        width: 125px;
+        height: 110px;
+        top: 150px;
+        right: 510px;
+    }
+
+    #taskNov {
+        width: 125px;
+        height: 120px;
+        top: 150px;
+        right: 130px;
+    }
+
+    #goBack {
+        width: 255px;
+        height: 220px;
+        left: 130;
+        bottom: 0;
+    }
+</style>
+
+<body>
+    <div class="main">
+            <div class="child1">
+                <div class="title"><h1>Área de Matemática 3</h1></div>
+                <div id="message"></div>
+                <div class="frame">
+                    <div class="corner_topleft"></div>
+                    <div class="corner_topright"></div>
+                    <div class="corner_bottomleft"></div>
+                    <div class="corner_bottomright"></div>
+                    
+                    
+                    <div class="camera">
+                        <div class="map pixel-art">
+                            <div class="interactable" id="taskSet"></div>
+                            <div class="interactable" id="taskOct"></div>
+                            <div class="interactable" id="taskNov"></div>
+                            <div class="interactable" id="goBack"></div>
+                            <div class="character" facing="up" walking="true">
+                                <div class="shadow pixel-art"></div>
+                                <div class="character_spritesheet pixel-art"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="child2">
+                <div class="title" id="att"><h1>Viewer de Atividades</h1></div>
+                <div class="media"></div>
+                <div class="description">
+                    <h3>Nesta área serão exibidas as atividades que você quiser oberservar. 
+                        Clique nos quadros dentro das salas de cada matéria para vê-las. Você 
+                        pode passar o mouse por cima para ver qual atividade é.</h3>
+                </div>
+            </div>
+    </div>
+    
+</body>
+
+<script src="../src/index.js"></script>
+<script>
+    x = 50;
+    y = 500;
+    leftLimit = 22;
+    rightLimit = 266;
+    topLimit = 80;
+    bottomLimit = 192;
+
+    $('.interactable').hover(function() {
+        let id = $(this).attr('id');
+        switch(id) {
+            case 'taskSet':
+                $('#message').html('<h2>Em breve</h2>');
+                break;
+            case 'taskOct':
+                $('#message').html('<h2>Quina</h2>');
+                break;
+            case 'taskNov':
+                $('#message').html('<h2>Em breve</h2>');
+                break;
+            case 'goBack':
+                $('#message').html('<h2>Clique aqui para voltar</h2>');
+                break;
+        }
+        setTimeout(function() {
+            $('#message').html('');
+        }, 3000);
+    })
+
+    $('.interactable').on('click', function() {
+        let id = $(this).attr('id');
+        let iframe = $(parent.document.getElementById("iframe"));
+        switch(id) {
+            case 'taskSet':
+                $('#att').html('<h1>Em breve</h1>');
+                $('.description').html('<h3>aa</h3>');
+                $('.media').html('<iframe width="450" height="500"src=""></iframe> ')
+                break;
+            case 'taskOct':
+                $('#att').html('<h1>Quina</h1>');
+                $('.description').html('<h3>Estudando sobre probabilidade, um dos assunstos mais frequentes são as diversas loterias. Neste trabalha fizemos uma apresentação de slides sobre a Quina, uma modalidade da lotérica, e eu desenvolvi um mini software em python para demonstrar como funciona o sorteio. <a href="https://github.com/gabri3lquadr0s/quina" target="_blank">Link do software.</a></h3>');
+                $('.media').html('<iframe src="https://www.canva.com/design/DAGVMUDRKyc/tc6xw0nwKcIhpuAlSZbBNg/view?embed" width="450" height="500" allow="autoplay"></iframe>');
+                break;
+            case 'taskNov':
+                $('#att').html('<h1>Em breve</h1>');
+                $('.description').html('<h3></h3>');
+                $('.media').html('<img width="500" height="500" src="">');
+                break;
+            case 'goBack':
+                iframe.attr('src','./pages/matematica2.html');
+                break;
+        }
+    })
+</script>

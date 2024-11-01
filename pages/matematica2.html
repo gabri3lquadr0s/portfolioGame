@@ -35,6 +35,13 @@
         right: 0px;
         top: 507px;
     }
+
+    #goFow {
+        width: 255px;
+        height: 200px;
+        left: 125;
+        top: 150;
+    }
 </style>
 
 <body>
@@ -55,6 +62,7 @@
                             <div class="interactable" id="taskJul"></div>
                             <div class="interactable" id="taskAgo"></div>
                             <div class="interactable" id="goBack"></div>
+                            <div class="interactable" id="goFow"></div>
                             <div class="character" facing="left" walking="true">
                                 <div class="shadow pixel-art"></div>
                                 <div class="character_spritesheet pixel-art"></div>
@@ -100,6 +108,9 @@
             case 'goBack':
                 $('#message').html('<h2>Clique aqui para voltar</h2>');
                 break;
+            case 'goFow':
+                $('#message').html('<h2>Continue para o terceiro trimestre</h2>');
+                    break;
         }
         setTimeout(function() {
             $('#message').html('');
@@ -127,6 +138,9 @@
                 break;
             case 'goBack':
                 iframe.attr('src','./pages/matematica.html');
+                break;
+            case 'goFow':
+                iframe.attr('src', './pages/matematica3.html');
                 break;
         }
     })
