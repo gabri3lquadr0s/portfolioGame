@@ -36,6 +36,13 @@
         bottom: 120px;
     }
 
+    #goFow {
+        right: 0;
+        top: 465;
+        width: 115px;
+        height: 235px;
+    }
+
     .media {
         width: 650px;
     }
@@ -59,6 +66,7 @@
                             <div class="interactable" id="taskJul"></div>
                             <div class="interactable" id="taskJun"></div>
                             <div class="interactable" id="goBack"></div>
+                            <div class="interactable" id="goFow"></div>
                             <div class="character" facing="up" walking="true">
                                 <div class="shadow pixel-art"></div>
                                 <div class="character_spritesheet pixel-art"></div>
@@ -104,6 +112,9 @@
             case 'goBack':
                 $('#message').html('<h2>Clique aqui para voltar</h2>');
                 break;
+            case 'goFow':
+                $('#message').html('<h2>Continue para o segundo trimestre</h2>');
+                break;
         }
         setTimeout(function() {
             $('#message').html('');
@@ -131,6 +142,9 @@
                 break;
             case 'goBack':
                 iframe.attr('src','./pages/tecnico.html');
+                break;
+            case 'goFow':
+                iframe.attr('src', './pages/tecnico3.html');
                 break;
         }
     })

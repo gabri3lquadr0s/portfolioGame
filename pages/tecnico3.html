@@ -1,0 +1,137 @@
+<link rel="stylesheet" href="../src/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+    .map {
+    background-image: url("../img/Map014.png");
+    width: calc(20 * var(--grid-cell));
+    height: calc(14 * var(--grid-cell));
+    }
+
+    #taskNov {
+        width: 95px;
+        height: 75px;
+        top: 150px;
+        left: 475px;
+    }
+
+    #taskOct {
+        width: 95px;
+        height: 75px;
+        top: 150px;
+        left: 365px;
+    }
+
+    #taskSet {
+        width: 95px;
+        height: 75px;
+        top: 150px;
+        left: 245px;
+    }
+
+    #goBack {
+        left: 0;
+        top: 465;
+        width: 115px;
+        height: 235px;
+    }
+
+    .media {
+        width: 650px;
+    }
+</style>
+
+<body>
+    <div class="main">
+            <div class="child1">
+                <div class="title"><h1>Área do Técnico 3</h1></div>
+                <div id="message"></div>
+                <div class="frame">
+                    <div class="corner_topleft"></div>
+                    <div class="corner_topright"></div>
+                    <div class="corner_bottomleft"></div>
+                    <div class="corner_bottomright"></div>
+                    
+                    
+                    <div class="camera">
+                        <div class="map pixel-art">
+                            <div class="interactable" id="taskSet"></div>
+                            <div class="interactable" id="taskOct"></div>
+                            <div class="interactable" id="taskNov"></div>
+                            <div class="interactable" id="goBack"></div>
+                            <div class="character" facing="right" walking="true">
+                                <div class="shadow pixel-art"></div>
+                                <div class="character_spritesheet pixel-art"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="child2">
+                <div class="title" id="att"><h1>Viewer de Atividades</h1></div>
+                <div class="media"></div>
+                <div class="description">
+                    <h3>Nesta área serão exibidas as atividades que você quiser oberservar. 
+                        Clique nos quadros dentro das salas de cada matéria para vê-las. Você 
+                        pode passar o mouse por cima para ver qual atividade é.</h3>
+                </div>
+            </div>
+    </div>
+    
+</body>
+
+<script src="../src/index.js"></script>
+<script>
+    x = 0;
+    y = 125;
+    leftLimit = 22;
+    rightLimit = 266;
+    topLimit = 70;
+    bottomLimit = 170;
+
+    $('.interactable').hover(function() {
+        let id = $(this).attr('id');
+        switch(id) {
+            case 'taskNov':
+                $('#message').html('<h2></h2>');
+                break;
+            case 'taskOct':
+                $('#message').html('<h2>Grooving</h2>');
+                break;
+            case 'taskSet':
+                $('#message').html('<h2>Compasio - Amostra STEM</h2>');
+                break;
+            case 'goBack':
+                $('#message').html('<h2>Clique aqui para voltar</h2>');
+                break;
+        }
+        setTimeout(function() {
+            $('#message').html('');
+        }, 3000);
+    })
+
+    $('.interactable').on('click', function() {
+        let id = $(this).attr('id');
+        let iframe = $(parent.document.getElementById("iframe"));
+        switch(id) {
+            case 'taskNov':
+                $('#att').html('<h1>Banco de dados</h1>');
+                $('.description').html('<h3></h3>');
+                $('.media').html('')
+                break;
+            case 'taskOct':
+                $('#att').html('<h1>Grooving</h1>');
+                $('.description').html('<h3>Para a Situação de Aprendizagem da disciplina de programação de aplicativos, foi dada a tarefa de desenvolver um app fullstack de streaming de música. O Grooving tem funções como criação de contas para usuários e artistas, criar e escutar albums de música e playlists, e outras funções. <a href="https://github.com/gabri3lquadr0s/grooving" target="_blank">Link do repositório.</a></h3>');
+                $('.media').html('');
+                break;
+            case 'taskSet':
+                $('#att').html('<h1>Compasio - Amostra STEM</h1>');
+                $('.description').html('<h3>Na amostra STEM, aprensentamos nossa situação de aprendizagem do curso técnico, a Compasio, um webapp para conectar voluntários ou pessoas que querem ser voluntários com ONGs, para a melhor divulgação do trabalho destas organizações e a busca por interessados em ajudar de alguma forma. Fui responsável pelo backend. <a href="https://github.com/Compasio/backend" target="_blank">Link do repositório.</a></h3>');
+                $('.media').html('');
+                break;
+            case 'goBack':
+                iframe.attr('src','./pages/tecnico2.html');
+                break;
+        }
+    })
+</script>
