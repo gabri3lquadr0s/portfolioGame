@@ -1,0 +1,136 @@
+<link rel="stylesheet" href="../src/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+    .map {
+    background-image: url("../img/Map015.png");
+    width: calc(15 * var(--grid-cell));
+    height: calc(13 * var(--grid-cell));
+    }
+
+    #taskSet {
+        width: 133px;
+        height: 90px;
+        top: 100px;
+        left: 125;
+    }
+
+    #taskOct {
+        width: 133px;
+        height: 90px;
+        top: 100px;
+        left: 415px;
+    }
+
+    #taskNov {
+        width: 133px;
+        height: 90px;
+        top: 100px;
+        right: 125px;
+    }
+
+    #goBack {
+        width: 95px;
+        height: 230px;
+        left: 0;
+        top: 350;
+    }
+</style>
+
+<body>
+    <div class="main">
+            <div class="child1">
+                <div class="title"><h1>Área de Humanas 3</h1></div>
+                <div id="message"></div>
+                <div class="frame">
+                    <div class="corner_topleft"></div>
+                    <div class="corner_topright"></div>
+                    <div class="corner_bottomleft"></div>
+                    <div class="corner_bottomright"></div>
+                    
+                    
+                    <div class="camera">
+                        <div class="map pixel-art">
+                            <div class="interactable" id="taskSet"></div>
+                            <div class="interactable" id="taskOct"></div>
+                            <div class="interactable" id="taskNov"></div>
+                            <div class="interactable" id="goBack"></div>
+                            <div class="character" facing="right" walking="true">
+                                <div class="shadow pixel-art"></div>
+                                <div class="character_spritesheet pixel-art"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="child2">
+                <div class="title" id="att"><h1>Viewer de Atividades</h1></div>
+                <div class="media"></div>
+                <div class="description">
+                    <h3>Nesta área serão exibidas as atividades que você quiser oberservar. 
+                        Clique nos quadros dentro das salas de cada matéria para vê-las. Você 
+                        pode passar o mouse por cima para ver qual atividade é.</h3>
+                </div>
+            </div>
+    </div>
+    
+</body>
+
+<script src="../src/jquery-collision.js"></script>
+<script src="../src/index.js"></script>
+<script>
+    x = 25;
+    y = 90;
+    leftLimit = 15;
+    rightLimit = 195;
+    topLimit = 50;
+    bottomLimit = 160;
+
+    $('.interactable').hover(function() {
+        let id = $(this).attr('id');
+        switch(id) {
+            case 'taskSet':
+                $('#message').html('<h2>Migrações</h2>');
+                break;
+            case 'taskOct':
+                $('#message').html('<h2>Livro Infantil Sobre Existencialismo</h2>');
+                break;
+            case 'taskNov':
+                $('#message').html('<h2></h2>');
+                break;
+            case 'goBack':
+                $('#message').html('<h2>Entre nessa porta para voltar</h2>');
+                break;
+        }
+        setTimeout(function() {
+            $('#message').html('');
+        }, 3000);
+    })
+
+    $('.interactable').on('click', function() {
+        let id = $(this).attr('id');
+        let iframe = $(parent.document.getElementById("iframe"));
+        switch(id) {
+            case 'taskSet':
+                $('#att').html('<h1>Migrações</h1>');
+                $('.description').html('<h3>Este trabalho teve como objetivo estudar a migração de venezuelanos para países vizinhos, analisando as rotas, políticas migratórias e impactos socioeconômicos envolvidos. Utilizamos o Padlet para criar um mapa interativo, onde destacamos a rota geográfica, dados relevantes e incluímos artigos, imagens e casos reais de imigrantes.</h3>');
+                $('.media').html(' <iframe width="450" height="500"src="https://padlet.com/embed/32pyctbizytebsrg"></iframe> ')
+                break;
+            case 'taskOct':
+                $('#att').html('<h1>Livro Infantil Sobre Existencialismo</h1>');
+                $('.description').html('<h3>Este trabalho teve como objetivo explorar o existencialismo de forma acessível para crianças de 5 a 7 anos, por meio de um livro paradidático infantil. O livro apresenta conceitos essenciais como “liberdade”, “angústia” e “autenticidade”. Incluímos exemplos de personagens que vivem dilemas existencialistas como o Batman e o Lula molusco.</h3>');
+                $('.media').html('<iframe src="https://www.canva.com/design/DAGV1sepOT4/mLMS6TftaitZc-Cj1XgqWg/view?embed" width="450" height="500"></iframe>');
+                break;
+            case 'taskNov':
+                $('#att').html('<h1></h1>');
+                $('.description').html('<h3></h3>');
+                $('.media').html('<iframe src="" width="450" height="500" allow="autoplay"></iframe>');
+                break;
+            case 'goBack':
+                iframe.attr('src','./pages/humanas2.html');
+                break;
+        }
+    })
+
+    setInterval(() => {console.log($('.character').collision('.colidable'))}, 1000)
+</script>
