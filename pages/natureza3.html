@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="../src/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+    .map {
+    background-image: url("../img/Map017.png");
+    width: calc(19 * var(--grid-cell));
+    height: calc(19 * var(--grid-cell));
+    }
+
+    #taskSet {
+        width: 210px;
+        height: 90px;
+        top: 150;
+        left: 140;
+    }
+
+    #taskOct {
+        width: 210px;
+        height: 90px;
+        top: 150;
+        left: 505;
+    }
+
+    #taskNov {
+        width: 210px;
+        height: 90px;
+        top: 150;
+        left: 870;
+    }
+
+    #goBack {
+        width: 120px;
+        height: 240px;
+        top: 490;
+        right: 0;
+    }
+</style>
+
+<body>
+    <div class="main">
+            <div class="child1">
+                <div class="title"><h1>Área de Natureza 3</h1></div>
+                <div id="message"></div>
+                <div class="frame">
+                    <div class="corner_topleft"></div>
+                    <div class="corner_topright"></div>
+                    <div class="corner_bottomleft"></div>
+                    <div class="corner_bottomright"></div>
+                    
+                    
+                    <div class="camera">
+                        <div class="map pixel-art">
+                            <div class="interactable" id="taskSet"></div>
+                            <div class="interactable" id="taskOct"></div>
+                            <div class="interactable" id="taskNov"></div>
+                            <div class="interactable" id="goBack"></div>
+                            <div class="character" facing="left" walking="true">
+                                <div class="shadow pixel-art"></div>
+                                <div class="character_spritesheet pixel-art"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="child2">
+                <div class="title" id="att"><h1>Viewer de Atividades</h1></div>
+                <div class="media"></div>
+                <div class="description">
+                    <h3>Nesta área serão exibidas as atividades que você quiser oberservar. 
+                        Clique nos quadros dentro das salas de cada matéria para vê-las. Você 
+                        pode passar o mouse por cima para ver qual atividade é.</h3>
+                </div>
+            </div>
+    </div>
+    
+</body>
+
+<script src="../src/index.js"></script>
+<script>
+    x = 300;
+    y = 125;
+    leftLimit = 22;
+    rightLimit = 250;
+    topLimit = 80;
+    bottomLimit = 240;
+
+    $('.interactable').hover(function() {
+        let id = $(this).attr('id');
+        switch(id) {
+            case 'taskSet':
+                $('#message').html('<h2>Relações Harmônicas e Desarmônicas</h2>');
+                break;
+            case 'taskOct':
+                $('#message').html('<h2>Pilha de Limão</h2>');
+                break;
+            case 'taskNov':
+                $('#message').html('<h2>Fissão e Fusão Nuclear</h2>');
+                break;
+            case 'goBack':
+                $('#message').html('<h2>Entre nessa porta para voltar</h2>');
+                break;
+        }
+        setTimeout(function() {
+            $('#message').html('');
+        }, 3000);
+    })
+
+    $('.interactable').on('click', function() {
+        let id = $(this).attr('id');
+        let iframe = $(parent.document.getElementById("iframe"));
+        switch(id) {
+            case 'taskSet':
+                $('#att').html('<h1>Relações Harmônicas e Desarmônicas</h1>');
+                $('.description').html('<h3>Esta atividade consistiu em, em duplas ou trios, criar dois animais totalmente novos para um bioma, criando uma relação harmônica ou desamôrnica. Criamos o boto carmesin e o pássaro seta, o pássaro limpa o bico nos chifres do boto.</h3>');
+                $('.media').html(' <iframe width="450" height="500" src="https://docs.google.com/document/d/e/2PACX-1vTMqfxm_ZfWVtGaXroFfjXVSAtcR3DEv9c0bKjjnAvJTsNGFqOJddIl27UeQUlu8gWWqOKSEdhHoiuQ/pub?embedded=true"></iframe> ')
+                break;
+            case 'taskOct':
+                $('#att').html('<h1>Pilha de Limão</h1>');
+                $('.description').html('<h3>Neste desafio, construímos uma pilha caseira para aplicar conceitos de eletroquímica na prática. Usamos materiais simples e adaptamos instruções dos vídeos, exercitando nossa criatividade e habilidades de resolução de problemas. Nosso objetivo foi criar uma pilha funcional, compreendendo melhor as reações químicas que produzem eletricidade.</h3>');
+                $('.media').html('<iframe src="https://www.youtube.com/embed/fSERoLFkXXE?si=kB98gPMw_MC_1i43" width="450" height="500"></iframe>');
+                break;
+            case 'taskNov':
+                $('#att').html('<h1>Fissão e Fusão Nuclear</h1>');
+                $('.description').html('<h3>Nesta atividade, a turma foi dividida em grupos para desenvolver diversos produtos a serem apresentados na aula. O nosso foi um jogo de perguntas e respostas feito no Kahoot, para revisar os conceitos vindos dos produtos dos outros grupos.</h3>');
+                $('.media').html('<img src="../img/kahoot.png" width="450" height="500" />');
+                break;
+            case 'goBack':
+                iframe.attr('src','./pages/natureza2.html');
+                break;
+        }
+    })
+</script>
