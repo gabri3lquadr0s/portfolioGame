@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="../src/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+    .map {
+    background-image: url("../img/Map016.png");
+    width: calc(15 * var(--grid-cell));
+    height: calc(15 * var(--grid-cell));
+    }
+
+    #taskSet {
+        width: 80px;
+        height: 95px;
+        top: 115;
+        left: 125;
+    }
+
+    #taskOct {
+        width: 80px;
+        height: 95px;
+        top: 135px;
+        left: 445;
+    }
+
+    #taskNov {
+        width: 80px;
+        height: 95px;
+        top: 115;
+        right: 115;
+    }
+
+    #goBack {
+        width: 220px;
+        height: 110px;
+        right: 100;
+        bottom: 0;
+    }
+</style>
+
+<body>
+    <div class="main">
+            <div class="child1">
+                <div class="title"><h1>Área de Linguagens 3</h1></div>
+                <div id="message"></div>
+                <div class="frame">
+                    <div class="corner_topleft"></div>
+                    <div class="corner_topright"></div>
+                    <div class="corner_bottomleft"></div>
+                    <div class="corner_bottomright"></div>
+                    
+                    
+                    <div class="camera">
+                        <div class="map pixel-art">
+                            <div class="interactable" id="taskSet"></div>
+                            <div class="interactable" id="taskOct"></div>
+                            <div class="interactable" id="taskNov"></div>
+                            <div class="interactable" id="goBack"></div>
+                            <div class="character" facing="up" walking="true">
+                                <div class="shadow pixel-art"></div>
+                                <div class="character_spritesheet pixel-art"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="child2">
+                <div class="title" id="att"><h1>Viewer de Atividades</h1></div>
+                <div class="media"></div>
+                <div class="description">
+                    <h3>Nesta área serão exibidas as atividades que você quiser oberservar. 
+                        Clique nos quadros dentro das salas de cada matéria para vê-las. Você 
+                        pode passar o mouse por cima para ver qual atividade é.</h3>
+                </div>
+            </div>
+    </div>
+    
+</body>
+
+<script src="../src/index.js"></script>
+<script>
+    x = 170;
+    y = 180;
+    leftLimit = 22;
+    rightLimit = 190;
+    topLimit = 75;
+    bottomLimit = 180;
+
+    $('.interactable').hover(function() {
+        let id = $(this).attr('id');
+        switch(id) {
+            case 'taskSet':
+                $('#message').html('<h2>3° Aplicação do Redação Online</h2>');
+                break;
+            case 'taskOct':
+                $('#message').html('<h2>Panis et Circensis</h2>');
+                break;
+            case 'taskNov':
+                $('#message').html('<h2></h2>');
+                break;
+            case 'goBack':
+                $('#message').html('<h2>Entre nessa porta para voltar</h2>');
+                break;
+        }
+        setTimeout(function() {
+            $('#message').html('');
+        }, 3000);
+    })
+
+    $('.interactable').on('click', function() {
+        let id = $(this).attr('id');
+        let iframe = $(parent.document.getElementById("iframe"));
+        switch(id) {
+            case 'taskSet':
+                $('#att').html('<h1>3° Aplicação do Redação Online</h1>');
+                $('.description').html('<h3>Esta foi a última aplicação do Redação Online do ano, e o tema foi Medidas Para Combater a Má Alimentação Entre os Jovens No Brasil. Minha nota segundo os corretores foi 800.</h3>');
+                $('.media').html(' <iframe width="450" height="500" src="https://drive.google.com/file/d/1zeNjOjo08r2_HvQhQa1Zh06gKo6fvYFA/preview" allow="autoplay"></iframe> ')
+                break;
+            case 'taskOct':
+                $('#att').html('<h1>Panis et Circensis</h1>');
+                $('.description').html('<h3>Neste trabalho, nosso grupo explorou a canção Bat Macumba, do álbum Tropicália ou Panis et Circensis. Pesquisamos o contexto histórico do tropicalismo, suas características e os artistas envolvidos. Analisamos a letra e a sonoridade da música, destacando como elementos do tropicalismo. A apresentação inclui esses dados em slides e uma criação artística: um cartaz onde a letra de "Bat Macumba" forma a bandeira do Brasil.</h3>');
+                $('.media').html('<iframe src="" width="450" height="500" ></iframe>');
+                break;
+            case 'taskNov':
+                $('#att').html('<h1></h1>');
+                $('.description').html('<h3></h3>');
+                $('.media').html('<iframe allowfullscreen="allowfullscreen" loading="lazy" allow="fullscreen" width="450" height="500" src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGDPv_Q5gw&#x2F;EqHlv4l1uQE27M6BvuInxw&#x2F;view?embed"></iframe>');
+                break;
+            case 'goBack':
+                iframe.attr('src','./pages/linguagens2.html');
+                break;
+        }
+    })
+</script>
