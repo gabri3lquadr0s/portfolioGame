@@ -176,3 +176,17 @@
         width: 500px;
         text-align: justify;
     }
+
+@media (max-width: 1400px) {
+    .title {
+        font-size: 18px;
+    }
+    .media {
+        width: 450px;
+        height: 450px;
+    }
+    .media iframe {
+        width: 450px;
+        height: 450px;
+    }
+}
