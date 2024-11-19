@@ -3,11 +3,6 @@
     --grid-cell: calc( var(--pixel-size) * 16);
     --bg: #0D1117;
     }
-    @media(max-width: 1400px) {
-        body { 
-            transform: scale(0.70)
-        }
-    } 
     @media( min-width: 700px ) {
     :root {
         --pixel-size: 3px;
