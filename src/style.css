@@ -177,6 +177,10 @@
         text-align: justify;
     }
 
+    .description h3 {
+        font-size: 16px;
+    }
+
 @media (max-width: 1400px) {
     .title {
         font-size: 18px;
