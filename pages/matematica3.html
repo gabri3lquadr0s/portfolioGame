@@ -35,6 +35,10 @@
         left: 130;
         bottom: 0;
     }
+
+    .media {
+        width: 700px !important;
+    }
 </style>
 
 <body>
@@ -89,13 +93,13 @@
         let id = $(this).attr('id');
         switch(id) {
             case 'taskSet':
-                $('#message').html('<h2>Em breve</h2>');
+                $('#message').html('<h2>Compasio - Amostra STEM</h2>');
                 break;
             case 'taskOct':
                 $('#message').html('<h2>Quina</h2>');
                 break;
             case 'taskNov':
-                $('#message').html('<h2>Em breve</h2>');
+                $('#message').html('<h2>Bem Estar Digital</h2>');
                 break;
             case 'goBack':
                 $('#message').html('<h2>Clique aqui para voltar</h2>');
@@ -111,9 +115,9 @@
         let iframe = $(parent.document.getElementById("iframe"));
         switch(id) {
             case 'taskSet':
-                $('#att').html('<h1></h1>');
-                $('.description').html('<h3></h3>');
-                $('.media').html('<iframe width="450" height="500"src=""></iframe> ')
+                $('#att').html('<h1>Compasio - Amostra STEM</h1>');
+                $('.description').html('<h3>Na amostra STEM, aprensentamos nossa situação de aprendizagem, a Compasio, um webapp para conectar voluntários com ONGs, para a melhor divulgação do trabalho destas organizações e a busca por interessados em ajudar de alguma forma. Fui responsável pelo backend. <a href="https://github.com/Compasio/backend" target="_blank">Link do repositório.</a></h3>');
+                $('.media').html('<img width="700" height="500" src="../img/compasio2.png" style="">')
                 break;
             case 'taskOct':
                 $('#att').html('<h1>Quina</h1>');
@@ -121,9 +125,9 @@
                 $('.media').html('<iframe src="https://www.canva.com/design/DAGVMUDRKyc/tc6xw0nwKcIhpuAlSZbBNg/view?embed" width="450" height="500" allow="autoplay"></iframe>');
                 break;
             case 'taskNov':
-                $('#att').html('<h1></h1>');
-                $('.description').html('<h3></h3>');
-                $('.media').html('<img width="500" height="500" src="">');
+                $('#att').html('<h1>Bem Estar Digital</h1>');
+                $('.description').html('<h3>Este trabalho envolveu um pouco de análise de dados e reflexão pessoal. Nosso objetivo era analisar os relatórios de uso dos nossos celulares, e então confeccionar uma apresentação e uma planilha apresentando estes dados, além de apresentar uma análise crítica sobre a quantidade de uso. <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSO2VAM9UNHJxNzWmC2GeA1QvB_d3KNe3QFKGjNo4lJv3Krn2E73t_7hDflGpDh1xSW87AVRHt7iUzn/pubhtml" target="_blank">Link da planilha.</a></h3>');
+                $('.media').html('<iframe width="450" height="500" src="https://www.canva.com/design/DAGXM9brhCw/THW54HN5bNXDTriLhw-HAA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>');
                 break;
             case 'goBack':
                 iframe.attr('src','./pages/matematica2.html');

@@ -35,6 +35,10 @@
         left: 0;
         top: 350;
     }
+
+    .media {
+        width: 700px;
+    }
 </style>
 
 <body>
@@ -96,7 +100,7 @@
                 $('#message').html('<h2>Livro Infantil Sobre Existencialismo</h2>');
                 break;
             case 'taskNov':
-                $('#message').html('<h2></h2>');
+                $('#message').html('<h2>Compasio - Amostra STEM</h2>');
                 break;
             case 'goBack':
                 $('#message').html('<h2>Entre nessa porta para voltar</h2>');
@@ -122,9 +126,9 @@
                 $('.media').html('<iframe src="https://www.canva.com/design/DAGV1sepOT4/mLMS6TftaitZc-Cj1XgqWg/view?embed" width="450" height="500"></iframe>');
                 break;
             case 'taskNov':
-                $('#att').html('<h1></h1>');
-                $('.description').html('<h3></h3>');
-                $('.media').html('<iframe src="" width="450" height="500" allow="autoplay"></iframe>');
+                $('#att').html('<h1>Compasio - Amostra STEM</h1>');
+                $('.description').html('<h3>Na amostra STEM, aprensentamos nossa situação de aprendizagem, a Compasio, um webapp para conectar voluntários com ONGs, para a melhor divulgação do trabalho destas organizações e a busca por interessados em ajudar de alguma forma. Fui responsável pelo backend. <a href="https://github.com/Compasio/backend" target="_blank">Link do repositório.</a></h3>');
+                $('.media').html('<img width="700" height="500" src="../img/compasio2.png" style="">');
                 break;
             case 'goBack':
                 iframe.attr('src','./pages/humanas2.html');

@@ -35,6 +35,10 @@
         right: 100;
         bottom: 0;
     }
+
+    .media {
+        width: 700px;
+    }
 </style>
 
 <body>
@@ -95,7 +99,7 @@
                 $('#message').html('<h2>Panis et Circensis</h2>');
                 break;
             case 'taskNov':
-                $('#message').html('<h2></h2>');
+                $('#message').html('<h2>Compasio - Amostra STEM</h2>');
                 break;
             case 'goBack':
                 $('#message').html('<h2>Entre nessa porta para voltar</h2>');
@@ -118,12 +122,12 @@
             case 'taskOct':
                 $('#att').html('<h1>Panis et Circensis</h1>');
                 $('.description').html('<h3>Neste trabalho, nosso grupo explorou a canção Bat Macumba, do álbum Tropicália ou Panis et Circensis. Pesquisamos o contexto histórico do tropicalismo, suas características e os artistas envolvidos. A apresentação inclui esses dados em slides e uma criação artística onde um cartaz onde a letra de "Bat Macumba" forma a bandeira do Brasil.</h3>');
-                $('.media').html('<iframe src="" width="450" height="500" ></iframe>');
+                $('.media').html('<iframe src="https://www.canva.com/design/DAGVCzLnEEE/prF1ErRNi8fljiLqNJslyA/view?embed" width="450" height="500" ></iframe>');
                 break;
             case 'taskNov':
-                $('#att').html('<h1></h1>');
-                $('.description').html('<h3></h3>');
-                $('.media').html('<iframe allowfullscreen="allowfullscreen" loading="lazy" allow="fullscreen" width="450" height="500" src=""></iframe>');
+                $('#att').html('<h1>Compasio - Amostra STEM</h1>');
+                $('.description').html('<h3>Na amostra STEM, aprensentamos nossa situação de aprendizagem, a Compasio, um webapp para conectar voluntários com ONGs, para a melhor divulgação do trabalho destas organizações e a busca por interessados em ajudar de alguma forma. Fui responsável pelo backend. <a href="https://github.com/Compasio/backend" target="_blank">Link do repositório.</a></h3>');
+                $('.media').html('<img width="700" height="500" src="../img/compasio2.png" style="">');
                 break;
             case 'goBack':
                 iframe.attr('src','./pages/linguagens2.html');
